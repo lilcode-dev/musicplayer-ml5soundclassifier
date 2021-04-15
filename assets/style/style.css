@@ -157,83 +157,9 @@ h3 {
 }
 
 .shuffle.active, .fa-microphone-alt.active {
-  color: #1ed760;
-}
-.dot-pulse {
-  position: relative;
-  left: -9999px;
-  width: 10px;
-  height: 10px;
-  border-radius: 5px;
-  background-color: #1ed760;
-  color: #1ed760;
-  box-shadow: 9999px 0 0 -5px #1ed760;
-  animation: dotPulse 1.5s infinite linear;
-  animation-delay: .25s;
+  color: #1ed760; 
 }
 
-.dot-pulse::before, .dot-pulse::after {
-  content: '';
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  width: 10px;
-  height: 10px;
-  border-radius: 5px;
-  background-color: #1ed760;
-  color: #1ed760;
-}
-
-.dot-pulse::before {
-  box-shadow: 9984px 0 0 -5px #1ed760;
-  animation: dotPulseBefore 1.5s infinite linear;
-  animation-delay: 0s;
-}
-
-.dot-pulse::after {
-  box-shadow: 10014px 0 0 -5px #1ed760;
-  animation: dotPulseAfter 1.5s infinite linear;
-  animation-delay: .5s;
-}
-
-@keyframes dotPulseBefore {
-  0% {
-    box-shadow: 9984px 0 0 -5px #1ed760;
-  }
-  30% {
-    box-shadow: 9984px 0 0 2px #1ed760;
-  }
-  60%,
-  100% {
-    box-shadow: 9984px 0 0 -5px #1ed760;
-  }
-}
-
-@keyframes dotPulse {
-  0% {
-    box-shadow: 9999px 0 0 -5px #1ed760;
-  }
-  30% {
-    box-shadow: 9999px 0 0 2px #1ed760;
-  }
-  60%,
-  100% {
-    box-shadow: 9999px 0 0 -5px #1ed760;
-  }
-}
-
-@keyframes dotPulseAfter {
-  0% {
-    box-shadow: 10014px 0 0 -5px #1ed760;
-  }
-  30% {
-    box-shadow: 10014px 0 0 2px #1ed760;
-  }
-  60%,
-  100% {
-    box-shadow: 10014px 0 0 -5px #1ed760;
-  }
-}
 .loadingcont {
   display: none;
   justify-content: center;
@@ -325,12 +251,52 @@ h3 {
   position: relative;
 }
 
+
+
+
 /* Media Query: iPhone (Vertical) */
 @media screen and (max-width: 376px) {
-
+  
   .player-container{
     width: 83vw;
     height: 120vw;
+  }
+  .img-container img {
+    width: 30vh;
+    height: 30vh;
+  }
+  .progress-container {
+    margin: 20px  0 30px 0;
+  }
+  .pause-play {
+    margin: 0 0 15px 0;
+    width: 65px;
+    height: 65px;
+    
+  }
+  .main-button {
+    font-size: 35px;
+  }
+  
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 15px;
+  }
+  
+  .player-controls {
+    top: -10px;
+    /* left: 100px; */
+  }
+}
+
+@media screen and (max-height: 670px) {
+
+  .player-container{
+    width: 83vw;
+    height: 109vw;
   }
   .img-container img {
     width: 30vh;
