@@ -143,6 +143,12 @@ h3 {
   margin: 0 0 20px 0
 
 }
+.volume-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+}
 
 .shuffle.active {
 
@@ -173,7 +179,12 @@ h3 {
 @media screen and (max-width: 376px) {
 
   .player-container{
-    width: 95vw;
+    width: 83vw;
+    height: 110vw;
+  }
+  .img-container img {
+    width: 30vh;
+    height: 30vh;
   }
 
   .pause-play {

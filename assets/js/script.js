@@ -1,5 +1,5 @@
 let soundClassifier;
-
+let canvasImg;
 const colorThief = new ColorThief();
 const image = document.querySelector("img");
 const getImageData = () => document.querySelector("img");
@@ -20,6 +20,7 @@ const playBtn = document.getElementById("play");
 const nextBtn = document.getElementById("next");
 const html = document.querySelector("html");
 const shuffleBtn = document.querySelector('[title = "Shuffle"]');
+const volume = document.querySelector('.volume');
 // Booleans
 let shuffle = false;
 let listeningVoice = false;
@@ -92,10 +93,8 @@ function playSong() {
   playBtn.classList.replace("fa-play", "fa-pause");
   playBtn.setAttribute("title", "Pause");
   imgContainer.classList.add("play");
-  setTimeout(() => {
-    paletteColor();
-  }, 100);
   music.play();
+  paletteColor();
 }
 
 /* Pause */
@@ -105,6 +104,19 @@ function pauseSong() {
   playBtn.setAttribute("title", "Play");
   imgContainer.classList.remove("play");
   music.pause();
+}
+function muteSong () {
+  volume.classList.remove('fa-volume-up');
+  volume.classList.add('fa-volume-mute');
+  music.muted = true;
+}
+function unmuteSong () {
+  volume.classList.remove('fa-volume-mute');
+  volume.classList.add('fa-volume-up');
+  music.muted = false;
+}
+const  changeVolume = () => {
+  (volume.className.includes('fa-volume-up')) ? muteSong() : unmuteSong()
 }
 
 function changeShuffleBtn() {
@@ -117,8 +129,10 @@ function changeShuffleBtn() {
 
 playBtn.addEventListener("click", () => isPlaying ? pauseSong() : playSong());
 
-async function paletteColor() {
-  let colors = await colorThief.getPalette(getImageData());
+ async function paletteColor() {
+ setTimeout(async() => {
+
+  let colors = await colorThief.getPalette( getImageData());
   let twoColors = [[...colors[0]], [...colors[1]]];
   document.documentElement.style.setProperty(
     "--color1",
@@ -128,14 +142,20 @@ async function paletteColor() {
     "--color2",
     `rgb(${twoColors[1][0]},${twoColors[1][1]},${twoColors[1][2]})`
   );
+ }, 100);
 }
-//update dom state
+setInterval(() => {
+  paletteColor()
+}, 2000);
 
 function loadSong(song) {
   title.textContent = song.displayName;
   artist.textContent = song.artist;
   music.src = `assets/music/${song.name}.mp3`;
-  image.src = `assets/img/${song.name}.jpg`;
+  // image.src = `assets/img/${song.name}.jpg`;
+  ( async() => {
+    image.src = await `assets/img/${song.name}.jpg`
+  })().then(paletteColor())
 }
 
 //current song
@@ -177,11 +197,8 @@ function nextSong() {
 
 // on load - select first song
 loadSong(songs[songIndex]);
-// console.log(songs[songIndex]);
-setTimeout(() => {
-  paletteColor();
-}, 100);
-// paletteColor()
+
+paletteColor()
 
 //Update Progress Bar en Time
 
@@ -225,6 +242,8 @@ function setProgressBar(e) {
   music.currentTime = (clickX / width) * duration;
 }
 
+image.addEventListener( 'change', ( e ) => console.log(e))
+
 // event listeners state
 prevBtn.addEventListener("click", prevSong);
 nextBtn.addEventListener("click", nextSong);
@@ -232,23 +251,27 @@ music.addEventListener("ended", nextSong);
 music.addEventListener("timeupdate", updateProgressBar);
 progressContainer.addEventListener("click", setProgressBar);
 shuffleBtn.addEventListener("click", changeShuffleBtn);
+volume.addEventListener('click', changeVolume);
 document.addEventListener("keyup", (e) =>
   e.code == "Space" ? playBtn.click() : false
 );
 document.addEventListener("keyup", (e) =>
   e.code == "ArrowLeft" ? prevBtn.click() : false
 );
+
 document.addEventListener("keyup", (e) =>
   e.code == "ArrowRight" ? nextBtn.click() : false
 );
-
+document.addEventListener("keyup", (e) =>
+  e.code == "KeyM" ? volume.click() : false
+);
 //soundClassifer
 
 // let soundClassifier;
 let output;
 
 function preload() {
-  let options = { probabilityThreshold: 0.96 };
+  let options = { probabilityThreshold: 0.95 };
   soundClassifier = ml5.soundClassifier("SpeechCommands18w", options);
 }
 
@@ -275,4 +298,12 @@ function gotResults(err, results) {
   if (results[0].label == "right") {
     nextSong();
   }
+  if (results[0].label == "down") {
+    muteSong();
+  }
+  if (results[0].label == "up") {
+    unmuteSong();
+  }
+
+
 }
