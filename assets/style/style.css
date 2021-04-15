@@ -27,7 +27,7 @@ h2, h3, span {
   
   display: flex;
   flex-direction: column;
-  height: 500px;
+  height: auto;
   width: 400px;
   background-color:rgba(0, 0, 0, 0);
   /* opacity: 0.5; */
