@@ -33,6 +33,15 @@ let isPlaying = false;
 
 //
 
+//current song
+// let songIndex = 0;
+JSON.parse(localStorage.getItem("userData"))
+  ? (songIndex = JSON.parse(localStorage.getItem("userData")).currentMusic)
+  : songIndex = 0;
+
+
+
+
 const listenActive = () => { 
   if (listenBtn.className.includes('active')) {
     listenBtn.classList.remove('active')
@@ -224,8 +233,7 @@ function loadSong(song) {
   paletteColor(song.colors.color1, song.colors.color2);
 }
 
-//current song
-let songIndex = 0;
+
 
 //previus song
 function prevSong() {
