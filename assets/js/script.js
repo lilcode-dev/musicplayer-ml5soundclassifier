@@ -142,11 +142,11 @@ playBtn.addEventListener("click", () => isPlaying ? pauseSong() : playSong());
     "--color2",
     `rgb(${twoColors[1][0]},${twoColors[1][1]},${twoColors[1][2]})`
   );
- }, 100);
+ }, 1000);
 }
 setInterval(() => {
   paletteColor()
-}, 2000);
+}, 1500);
 
 function loadSong(song) {
   title.textContent = song.displayName;
