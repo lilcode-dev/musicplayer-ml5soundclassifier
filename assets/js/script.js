@@ -14,6 +14,10 @@ const nextBtn = document.getElementById("next");
 const html = document.querySelector("html");
 const shuffleBtn = document.querySelector('[title = "Shuffle"]');
 const volume = document.querySelector(".volume");
+const listenDiv = document.querySelector('.listen');
+const listenBtn = document.querySelector('#listen');
+const listenLoad = document.querySelector('.loadingcont')
+
 // Booleans
 let shuffle;
 JSON.parse(localStorage.getItem("userData"))
@@ -28,6 +32,23 @@ let listeningVoice = false;
 let isPlaying = false;
 
 //
+
+const listenActive = () => { 
+  if (listenBtn.className.includes('active')) {
+    listenBtn.classList.remove('active')
+    listenLoad.classList.remove('active')
+    listeningVoice = false;
+  } else {
+    listenBtn.classList.add('active')
+    listenLoad.classList.add('active')
+    listeningVoice = true;
+
+  }
+  console.log(listeningVoice);
+}
+
+
+
 // music
 
 const musicObj = new Audio("assets/music/The Weeknd - After Hours.mp3");
@@ -251,13 +272,9 @@ if (localStorage.getItem("userData")) {
   }
   shuffle = userData.shuffleState;
   if(userData.muteState) {
-    // music.muted = true;
     console.log('muted');
     muteSong()
   }
-  // changeShuffleBtn();
-  // music.muted = userData.muteState;
-  // mute
 } else {
   loadSong(songs[songIndex]);
 }
@@ -316,6 +333,7 @@ music.addEventListener("timeupdate", updateProgressBar);
 progressContainer.addEventListener("click", setProgressBar);
 shuffleBtn.addEventListener("click", changeShuffleBtn);
 volume.addEventListener("click", changeVolume);
+listenDiv.addEventListener('click', listenActive)
 document.addEventListener("keyup", (e) =>
   e.code == "Space" ? playBtn.click() : false
 );
@@ -350,22 +368,18 @@ function gotResults(err, results) {
   }
 
   console.log(results[0].label);
-  if (results[0].label == "stop") {
-    pauseSong();
+  if (results[0].label == "stop") pauseSong();
+  if (results[0].label == "go") playSong();
+  
+  if (listeningVoice){
+    if (results[0].label == "left") prevSong();
+    
+    if (results[0].label == "right") nextSong();
+    
+    if (results[0].label == "down") muteSong();
+    
+    if (results[0].label == "up")   unmuteSong();
+    
   }
-  if (results[0].label == "go") {
-    playSong();
-  }
-  if (results[0].label == "left") {
-    prevSong();
-  }
-  if (results[0].label == "right") {
-    nextSong();
-  }
-  if (results[0].label == "down") {
-    muteSong();
-  }
-  if (results[0].label == "up") {
-    unmuteSong();
-  }
+
 }

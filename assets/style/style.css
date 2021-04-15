@@ -85,13 +85,19 @@ h3 {
   font-weight: 400;
   margin: 5px 0 0;
 }
-
+.listen {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 86%;
+  align-items: flex-end;
+}
 /* Progress */
 .progress-container {
   background: #fff;
   border-radius: 5px;
   cursor: pointer;
-  margin: 40px 20px;
+  margin: 20px  0 35px 0;
   height: 4px;
   width: 90%;
 }
@@ -150,12 +156,156 @@ h3 {
   width: 40px;
 }
 
-.shuffle.active {
-
+.shuffle.active, .fa-microphone-alt.active {
   color: #1ed760;
-
+}
+.dot-pulse {
+  position: relative;
+  left: -9999px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #1ed760;
+  color: #1ed760;
+  box-shadow: 9999px 0 0 -5px #1ed760;
+  animation: dotPulse 1.5s infinite linear;
+  animation-delay: .25s;
 }
 
+.dot-pulse::before, .dot-pulse::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #1ed760;
+  color: #1ed760;
+}
+
+.dot-pulse::before {
+  box-shadow: 9984px 0 0 -5px #1ed760;
+  animation: dotPulseBefore 1.5s infinite linear;
+  animation-delay: 0s;
+}
+
+.dot-pulse::after {
+  box-shadow: 10014px 0 0 -5px #1ed760;
+  animation: dotPulseAfter 1.5s infinite linear;
+  animation-delay: .5s;
+}
+
+@keyframes dotPulseBefore {
+  0% {
+    box-shadow: 9984px 0 0 -5px #1ed760;
+  }
+  30% {
+    box-shadow: 9984px 0 0 2px #1ed760;
+  }
+  60%,
+  100% {
+    box-shadow: 9984px 0 0 -5px #1ed760;
+  }
+}
+
+@keyframes dotPulse {
+  0% {
+    box-shadow: 9999px 0 0 -5px #1ed760;
+  }
+  30% {
+    box-shadow: 9999px 0 0 2px #1ed760;
+  }
+  60%,
+  100% {
+    box-shadow: 9999px 0 0 -5px #1ed760;
+  }
+}
+
+@keyframes dotPulseAfter {
+  0% {
+    box-shadow: 10014px 0 0 -5px #1ed760;
+  }
+  30% {
+    box-shadow: 10014px 0 0 2px #1ed760;
+  }
+  60%,
+  100% {
+    box-shadow: 10014px 0 0 -5px #1ed760;
+  }
+}
+.loadingcont {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -20px;
+  left: 28px;
+}
+.loadingcont.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -20px;
+  left: 28px;
+}
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  position: relative;
+  width: 80px;
+  height: 20px;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #1ed760;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
 .fas {
   font-size: 30px;
   color: rgb(255, 255, 255);
@@ -180,15 +330,17 @@ h3 {
 
   .player-container{
     width: 83vw;
-    height: 110vw;
+    height: 120vw;
   }
   .img-container img {
     width: 30vh;
     height: 30vh;
   }
-
+  .progress-container {
+    margin: 20px  0 30px 0;
+  }
   .pause-play {
-    margin: 0 0 20px 0;
+    margin: 0 0 15px 0;
     width: 65px;
     height: 65px;
 

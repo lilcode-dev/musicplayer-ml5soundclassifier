@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Player</title>
+    <title>Music Player SoundClassifier</title>
     <link rel="icon" type="image/png" href="assets/img/icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/>
     <link rel="stylesheet" href="assets/style/style.css">
@@ -24,6 +24,16 @@
         <audio src="" ></audio>
 
         <!-- progress -->
+        <div class="listen">
+            <i class="fas fa-microphone-alt" id="listen" title="Active Voice Commands"></i>
+            <!-- <div class="dot-pulse"></div> -->
+            <div class="loadingcont">
+
+                <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+            </div>
+            <!-- <i class="fas fa-microphone-alt-slash"></i> -->
+
+        </div>
         <div class="progress-container" id="progress-container">
             <div class="progress" id="progress"></div>
             <div class="duration-wrapper">
@@ -43,7 +53,6 @@
             <i class="fas fa-forward" id="next" title="Next"></i>
             <div class="volume-div">
                 <i class="fas fa-volume-up volume" title="Volume"></i>
-
             </div>
         </div>
     </div>
