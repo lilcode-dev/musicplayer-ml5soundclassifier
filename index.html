@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Player</title>
-    <link rel="icon" type="image/png" href="favicon00.png">
+    <link rel="icon" type="image/png" href="assets/img/icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/>
     <link rel="stylesheet" href="assets/style/style.css">
+    <link rel="stylesheet" href="assets/style/scss/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.sound.min.js"></script>
@@ -35,16 +36,58 @@
         </div>
         <!-- controls -->
         <div class="player-controls">
-            <i class="fas fa-random" title="ramdom"></i>
+            <i class="fas fa-random shuffle" title="Shuffle"></i>
             <i class="fas fa-backward" id="prev" title="Previous"></i>
             <div class="pause-play">
-                <i class="fas fa-play main-button" id="play" title="play"></i>
+                <i class="fas fa-play main-button" id="play" title="Play"></i>
 
             </div>
-            <i class="fas fa-forward" id="next" title="next"></i>
-            <i class="fas fa-list" title="music list"></i>
+            <i class="fas fa-forward" id="next" title="Next"></i>
+            <i class="fas fa-list" title="Music List"></i>
         </div>
     </div>
+    <card class="neumorphic fade">
+        <div class="current-music">
+            <img src="" id="img-current-music" alt="">
+        </div>
+        <ul >
+            <li>asdasdasdasdasdasd</li>
+            <li>asdasdasdasdasdasd</li>
+            <li>asdasdasdasdasdasd</li>
+            <li>asdasdasdasdasdasd</li>
+            <li>asdasdasdasdasdasd</li>
+            <li>asdasdasdasdasdasd</li>
+            <li>asdasdasdasdasdasd</li>
+            <li>asdasdasdasdasdasd</li>
+            <li>asdasdasdasdasdasd</li>
+            <li>asdasdasdasdasdasd</li>
+            <li>asdasdasdasdasdasd</li>
+            <li>asdasdasdasdasdasd</li>
+            <li>asdasdasdasdasdasd</li>
+            <li>asdasdasdasdasdasd</li>
+            <li>asdasdasdasdasdasd</li>
+            <li>asdasdasdasdasdasd</li>
+            <li>asdasdasdasdasdasd</li>
+            <li>asdasdasdasdasdasd</li>
+            <li>asdasdasdasdasdasd</li>
+            <li>asdasdasdasdasdasd</li>
+            <li>asdasdasdasdasdasd</li>
+            <li>asdasdasdasdasdasd</li>
+            <li>asdasdasdasdasdasd</li>
+            <li>asdasdasdasdasdasd</li>
+            <li>asdasdasdasdasdasd</li>
+            <li>asdasdasdasdasdasd</li>
+            <li>asdasdasdasdasdasd</li>
+        </ul>
+        <div class="message">
+          <div class="message-title">
+            <span>This is not an Image File!</span>
+          </div>
+          <div class="message-button">
+            <button>Ok</button>
+          </div>
+        </div>
+      </card>
     
     <!-- Script -->
     <script src="assets/js/script.js"></script>

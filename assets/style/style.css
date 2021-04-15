@@ -144,6 +144,12 @@ h3 {
 
 }
 
+.shuffle.active {
+
+  color: #1ed760;
+
+}
+
 .fas {
   font-size: 30px;
   color: rgb(255, 255, 255);
