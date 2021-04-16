@@ -1,4 +1,3 @@
-let soundClassifier;
 const image = document.querySelector("img");
 const title = document.getElementById("title");
 const artist = document.getElementById("artist");
@@ -19,6 +18,7 @@ const listenBtn = document.querySelector('#listen');
 const listenLoad = document.querySelector('.loadingcont')
 
 // Booleans
+let soundClassifier;
 let shuffle;
 JSON.parse(localStorage.getItem("userData"))
   ? (shuffle = JSON.parse(localStorage.getItem("userData")).shuffleState)
