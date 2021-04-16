@@ -355,6 +355,13 @@ document.addEventListener("keyup", (e) =>
 document.addEventListener("keyup", (e) =>
   e.code == "KeyM" ? volume.click() : false
 );
+document.addEventListener("keyup", (e) =>
+  e.code == "KeyS" ? shuffleBtn.click() : false
+);
+document.addEventListener("keyup", (e) =>
+  e.code == "KeyV" ? listenDiv.click() : false
+);
+
 //soundClassifer
 
 // let soundClassifier;
