@@ -1,4 +1,6 @@
 # **Music Player SoundClassifier**
+![enter image description here](https://lh5.googleusercontent.com/tacipVAi-M_BwolvNp5zD1437Txp_fYb1wta1mr-8lRoHkio2Kh9SKfAX8q2RDQp9e69pOZPWdaWo-Hci-ks=w1920-h600-rw)
+![enter image description here](https://lh4.googleusercontent.com/1UbW_IklBgpdDQP-9DgqY_KeTs7Pn6V0fXll70S7sddX1zBS1Oek6EP1fMONzCQEjq-3Njk7e8-b8oEzHres=w1920-h600-rw)
 
 This web app is about a music player with voice commands, developed using **ml5.js** and **p5.js** for the **voice commands**, **Firebase** for the **deploy**, **colorThief** to get the predominant colors of the cover of the image and then add a background gradient, and obviously **JavaScript**.
 
