@@ -10,6 +10,7 @@ When the user closes the web app completely, when he returns to the app he stays
 #### Always active:
 
 > **Stop:** Pause the music.
+
 > **Go:** Play the music.
 
 **Commands active when the microphone option is activated:**
