@@ -16,15 +16,23 @@ When the user closes the web app completely, when he returns to the app he stays
 **Commands active when the microphone option is activated:**
 
 >**Down:** Mute the music.
-**Up:** Unmute music.
-**Left:** Play previous music.
-**Right:** Play next music.
+
+>**Up:** Unmute music.
+
+>**Left:** Play previous music.
+
+>**Right:** Play next music.
 
 ### Keyboard commands:
 
 >**Space:** Pause and Play the music.
-**M:** Mute and unmute music.
-**Left Arrow:** Play previous music.
-**Right Arrow:** Play next music.
-**V:** Activate and Deactivate voice commands.
-**S:** Activate and Deactivate random play.
+
+>**M:** Mute and unmute music.
+
+>**Left Arrow:** Play previous music.
+
+>**Right Arrow:** Play next music.
+
+>**V:** Activate and Deactivate voice commands.
+
+>**S:** Activate and Deactivate random play.
