@@ -13,9 +13,9 @@ const nextBtn = document.getElementById("next");
 const html = document.querySelector("html");
 const shuffleBtn = document.querySelector('[title = "Shuffle"]');
 const volume = document.querySelector(".volume");
-const listenDiv = document.querySelector('.listen');
-const listenBtn = document.querySelector('#listen');
-const listenLoad = document.querySelector('.loadingcont')
+const listenDiv = document.querySelector(".listen");
+const listenBtn = document.querySelector("#listen");
+const listenLoad = document.querySelector(".loadingcont");
 
 // Booleans
 let soundClassifier;
@@ -25,7 +25,7 @@ JSON.parse(localStorage.getItem("userData"))
   : (shuffle = false);
 JSON.parse(localStorage.getItem("userData"))
   ? (music.muted = JSON.parse(localStorage.getItem("userData")).muteState)
-  : music.muted = false;
+  : (music.muted = false);
 
 let listeningVoice = false;
 // chech if playing
@@ -37,31 +37,23 @@ let isPlaying = false;
 // let songIndex = 0;
 JSON.parse(localStorage.getItem("userData"))
   ? (songIndex = JSON.parse(localStorage.getItem("userData")).currentMusic)
-  : songIndex = 0;
+  : (songIndex = 0);
 
-
-
-
-const listenActive = () => { 
-  if (listenBtn.className.includes('active')) {
-    listenBtn.classList.remove('active')
-    listenLoad.classList.remove('active')
+const listenActive = () => {
+  if (listenBtn.className.includes("active")) {
+    listenBtn.classList.remove("active");
+    listenLoad.classList.remove("active");
     listeningVoice = false;
   } else {
-    listenBtn.classList.add('active')
-    listenLoad.classList.add('active')
+    listenBtn.classList.add("active");
+    listenLoad.classList.add("active");
     listeningVoice = true;
-
   }
-  console.log(listeningVoice);
-}
-
-
+};
 
 // music
 
 const musicObj = new Audio("assets/music/The Weeknd - After Hours.mp3");
-console.log(musicObj);
 const songs = [
   {
     name: "Eladio Carrion - Corona Freestyle",
@@ -180,14 +172,12 @@ function muteSong() {
   volume.classList.add("fa-volume-mute");
   music.muted = true;
   addDataLS();
-  console.log(music.muted);
 }
 function unmuteSong() {
   volume.classList.remove("fa-volume-mute");
   volume.classList.add("fa-volume-up");
   music.muted = false;
   addDataLS();
-  console.log(music.muted);
 }
 const changeVolume = () => {
   volume.className.includes("fa-volume-up") ? muteSong() : unmuteSong();
@@ -198,7 +188,6 @@ function changeShuffleBtn() {
     ? (shuffleBtn.classList.remove("active"), (shuffle = false))
     : (shuffleBtn.classList.add("active"), (shuffle = true));
   addDataLS();
-  console.log(music.muted);
 }
 
 /* play or pause event  listener  */
@@ -216,8 +205,6 @@ function addDataLS() {
     muteState: music.muted,
     shuffleState: shuffle,
   };
-  console.log(userData);
-  console.log(music.muted);
   localStorage.setItem("userData", JSON.stringify(userData));
 }
 
@@ -228,12 +215,9 @@ function loadSong(song) {
   image.src = `assets/img/${song.name}.jpg`;
 
   addDataLS();
-  console.log(music.muted);
 
   paletteColor(song.colors.color1, song.colors.color2);
 }
-
-
 
 //previus song
 function prevSong() {
@@ -268,7 +252,6 @@ function nextSong() {
   loadSong(songs[songIndex]);
   playSong();
 }
-console.log(localStorage.getItem("userData"));
 
 // on load - select first song
 
@@ -279,9 +262,8 @@ if (localStorage.getItem("userData")) {
     shuffleBtn.classList.add("active");
   }
   shuffle = userData.shuffleState;
-  if(userData.muteState) {
-    console.log('muted');
-    muteSong()
+  if (userData.muteState) {
+    muteSong();
   }
 } else {
   loadSong(songs[songIndex]);
@@ -324,14 +306,12 @@ function updateProgressBar(e) {
 // set progress bar
 
 function setProgressBar(e) {
-  console.log(e.offsetX);
   const width = this.clientWidth;
   const clickX = e.offsetX;
   const { duration } = music;
   music.currentTime = (clickX / width) * duration;
 }
 
-image.addEventListener("change", (e) => console.log(e));
 
 // event listeners state
 prevBtn.addEventListener("click", prevSong);
@@ -341,7 +321,7 @@ music.addEventListener("timeupdate", updateProgressBar);
 progressContainer.addEventListener("click", setProgressBar);
 shuffleBtn.addEventListener("click", changeShuffleBtn);
 volume.addEventListener("click", changeVolume);
-listenDiv.addEventListener('click', listenActive)
+listenDiv.addEventListener("click", listenActive);
 document.addEventListener("keyup", (e) =>
   e.code == "Space" ? playBtn.click() : false
 );
@@ -361,7 +341,6 @@ document.addEventListener("keyup", (e) =>
 document.addEventListener("keyup", (e) =>
   e.code == "KeyV" ? listenDiv.click() : false
 );
-
 //soundClassifer
 
 // let soundClassifier;
@@ -376,25 +355,19 @@ function setup() {
   createCanvas(0, 0);
   soundClassifier.classify(gotResults);
 }
-function gotResults(err, results) {
-  if (err) {
-    console.log(`Error: ${err}`);
-    return;
-  }
-
-  console.log(results[0].label);
-  if (results[0].label == "stop") pauseSong();
-  if (results[0].label == "go") playSong();
-  
-  if (listeningVoice){
-    if (results[0].label == "left") prevSong();
-    
-    if (results[0].label == "right") nextSong();
-    
-    if (results[0].label == "down") muteSong();
-    
-    if (results[0].label == "up")   unmuteSong();
-    
-  }
-
+const gotResults = (err, results) =>  {
+  if (err) return new Error(`${err}`);
+  results[0].label == "stop" ? pauseSong() : false;
+  results[0].label == "go" ? playSong() : false;
+  listeningVoice
+    ? results[0].label == "left"
+      ? prevSong()
+      : results[0].label == "right"
+      ? nextSong()
+      : results[0].label == "down"
+      ? muteSong()
+      : results[0].label == "up"
+      ? unmuteSong()
+      : false
+    : false;
 }
