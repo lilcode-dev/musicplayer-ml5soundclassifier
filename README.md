@@ -1,6 +1,8 @@
 # **Music Player SoundClassifier**
-![enter image description here](https://lh5.googleusercontent.com/tacipVAi-M_BwolvNp5zD1437Txp_fYb1wta1mr-8lRoHkio2Kh9SKfAX8q2RDQp9e69pOZPWdaWo-Hci-ks=w1920-h600-rw)
-![enter image description here](https://lh4.googleusercontent.com/1UbW_IklBgpdDQP-9DgqY_KeTs7Pn6V0fXll70S7sddX1zBS1Oek6EP1fMONzCQEjq-3Njk7e8-b8oEzHres=w1920-h600-rw)
+
+[<img src="https://res.cloudinary.com/dopf41lzl/image/upload/v1619540388/Music%20Player%20SoundClassifier/musicplayer-ml5.web.app__iPhone_6_7_8_12_1_gywly9.png" alt="drawing" width="200"/>](https://res.cloudinary.com/dopf41lzl/image/upload/v1619540388/Music%20Player%20SoundClassifier/musicplayer-ml5.web.app__iPhone_6_7_8_12_1_gywly9.png)
+
+[<img src="https://res.cloudinary.com/dopf41lzl/image/upload/v1619540384/Music%20Player%20SoundClassifier/musicplayer-ml5.web.app__iPhone_6_7_8_10_1_tqclaq.png" alt="drawing" width="200"/>](https://res.cloudinary.com/dopf41lzl/image/upload/v1619540384/Music%20Player%20SoundClassifier/musicplayer-ml5.web.app__iPhone_6_7_8_10_1_tqclaq.png)
 
 This web app is about a music player with voice commands, developed using **ml5.js** and **p5.js** for the **voice commands**, **Firebase** for the **deploy**, **colorThief** to get the predominant colors of the cover of the image and then add a background gradient, and obviously **JavaScript**.
 
