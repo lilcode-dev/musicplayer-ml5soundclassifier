@@ -1,8 +1,7 @@
 # **Music Player SoundClassifier**
+![Eladio Carrion - Progreso](https://res.cloudinary.com/dopf41lzl/image/upload/c_scale,w_200/v1619540388/Music%20Player%20SoundClassifier/musicplayer-ml5.web.app__iPhone_6_7_8_12_1_gywly9.png)
 
-[<img src="https://res.cloudinary.com/dopf41lzl/image/upload/v1619540388/Music%20Player%20SoundClassifier/musicplayer-ml5.web.app__iPhone_6_7_8_12_1_gywly9.png" alt="drawing" width="200"/>](https://res.cloudinary.com/dopf41lzl/image/upload/v1619540388/Music%20Player%20SoundClassifier/musicplayer-ml5.web.app__iPhone_6_7_8_12_1_gywly9.png)
-
-[<img src="https://res.cloudinary.com/dopf41lzl/image/upload/v1619540384/Music%20Player%20SoundClassifier/musicplayer-ml5.web.app__iPhone_6_7_8_10_1_tqclaq.png" alt="drawing" width="200"/>](https://res.cloudinary.com/dopf41lzl/image/upload/v1619540384/Music%20Player%20SoundClassifier/musicplayer-ml5.web.app__iPhone_6_7_8_10_1_tqclaq.png)
+![Drake Ft. Future - Jumpman](https://res.cloudinary.com/dopf41lzl/image/upload/c_scale,w_200/v1619540384/Music%20Player%20SoundClassifier/musicplayer-ml5.web.app__iPhone_6_7_8_10_1_tqclaq.png)
 
 This web app is about a music player with voice commands, developed using **ml5.js** and **p5.js** for the **voice commands**, **Firebase** for the **deploy**, **colorThief** to get the predominant colors of the cover of the image and then add a background gradient, and obviously **JavaScript**.
 
